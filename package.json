@@ -1,0 +1,25 @@
+{
+  "name": "plt-todo-app",
+  "workspaces": [
+    "services/*"
+  ],
+  "scripts": {
+    "start": "platformatic start",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "borp": "^0.10.0",
+    "fastify": "^4.26.2"
+  },
+  "dependencies": {
+    "@fastify/cors": "^9.0.1",
+    "@fastify/static": "^7.0.4",
+    "platformatic": "^1.41.0",
+    "undici": "^6.19.2",
+    "vite": "^5.3.3"
+  },
+  "engines": {
+    "node": "^18.8.0 || >=20.6.0"
+  }
+}
