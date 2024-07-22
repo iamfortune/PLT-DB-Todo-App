@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3042";
+API_URL = import.meta.env.PLT_TODOCLIENT_URL;
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
