@@ -8,6 +8,8 @@ dist
 *.sqlite
 *.sqlite3
 
+fyl.toml
+
 # Logs
 logs
 *.log
@@ -25,3 +27,4 @@ tags
 
 # clinicjs
 .clinic/
+fly.toml

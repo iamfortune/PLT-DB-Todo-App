@@ -7,6 +7,7 @@ dist
 # database files
 *.sqlite
 *.sqlite3
+fyl.toml
 
 # Logs
 logs
@@ -25,3 +26,4 @@ tags
 
 # clinicjs
 .clinic/
+fly.toml

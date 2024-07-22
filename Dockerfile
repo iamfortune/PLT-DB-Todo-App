@@ -1,39 +1,24 @@
-# syntax = docker/dockerfile:1
+FROM node:20-alpine
 
-# Adjust NODE_VERSION as desired
-ARG NODE_VERSION=20.12.1
-FROM node:${NODE_VERSION}-slim as base
+# RUN corepack enable && corepack prepare pnpm@latest --activate
 
-LABEL fly_launch_runtime="Node.js"
+ARG PLT_TODOCLIENT_URL
+ENV PLT_TODOCLIENT_URL=$PLT_TODOCLIENT_URL
 
-# Node.js app lives here
-WORKDIR /app
+ENV APP_HOME=/home/app/node/
 
-# Set production environment
-ENV NODE_ENV="production"
+WORKDIR $APP_HOME
 
+COPY package.json package.json
+COPY package-lock.json package-lock.json
 
-# Throw-away build stage to reduce size of final image
-FROM base as build
+COPY . .
 
-# Install packages needed to build node modules
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
+RUN npm install
+RUN cd services/red-frog && \
+    npm install && \
+    npm run build
 
-# Install node modules
-COPY --link package-lock.json package.json ./
-RUN npm ci
+EXPOSE 3042
 
-# Copy application code
-COPY --link . .
-
-
-# Final stage for app image
-FROM base
-
-# Copy built application
-COPY --from=build /app /app
-
-# Start the server by default, this can be overwritten at runtime
-EXPOSE 3000
-CMD [ "npm", "run", "start" ]
+CMD ["npm", "start"]
