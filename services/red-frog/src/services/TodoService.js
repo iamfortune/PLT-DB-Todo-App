@@ -10,7 +10,7 @@ const axiosInstance = axios.create({
 });
 
 const getTodos = () => {
-  return axiosInstance.get("/todo/");
+  return axiosInstance.get("/todo");
 };
 
 const getTodoById = (id) => {

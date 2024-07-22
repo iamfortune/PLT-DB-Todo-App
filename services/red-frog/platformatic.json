@@ -20,6 +20,10 @@
         "encapsulate": false
       },
       {
+        "path": "./plugins/static.js",
+        "encapsulate": false
+      },
+      {
         "path": "./routes"
       }
     ],
