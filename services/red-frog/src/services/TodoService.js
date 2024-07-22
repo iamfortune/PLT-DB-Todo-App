@@ -1,9 +1,9 @@
 import axios from "axios";
 
-API_URL = import.meta.env.PLT_TODOCLIENT_URL;
+import.meta.env.PLT_TODOCLIENT_URL;
 
 const axiosInstance = axios.create({
-  baseURL: API_URL,
+  baseURL: PLT_TODOCLIENT_URL,
   headers: {
     "Content-Type": "application/json",
   },

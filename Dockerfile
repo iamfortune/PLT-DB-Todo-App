@@ -1,7 +1,5 @@
 FROM node:20-alpine
 
-# RUN corepack enable && corepack prepare pnpm@latest --activate
-
 ARG PLT_TODOCLIENT_URL
 ENV PLT_TODOCLIENT_URL=$PLT_TODOCLIENT_URL
 
