@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import TodoService from "../services/TodoService";
+import TodoService from "../TodoService/TodoService";
 
 const TodoForm = () => {
   const { id } = useParams();

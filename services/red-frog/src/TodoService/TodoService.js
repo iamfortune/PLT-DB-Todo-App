@@ -3,7 +3,7 @@ import axios from "axios";
 import.meta.env.PLT_TODOCLIENT_URL;
 
 const axiosInstance = axios.create({
-  baseURL: PLT_TODOCLIENT_URL,
+  baseURL: import.meta.env.PLT_TODOCLIENT_URL,
   headers: {
     "Content-Type": "application/json",
   },
